@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tripoptimizer | Search Places</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">TripOptimizer.io</a> -->
+            <a href="index.html"><img src="http://tripoptimizer.io/img/logo.png" alt="TripOptimizer.io Logo"></a>
+            <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li id="liProfile" class="nav-item" style="font-size: 25px;color: black;">
+                <!-- <a class="nav-link" href="#">Login</a> -->
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="dvProfile">
+                    <ul class="ulProfile">
+                        <li class="hand">Update Profile</li>
+                        <li class="hand">Logout</li>
+                    </ul>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body">
+        <div class="container">
+            <h5 style="margin: 20px 0 20px 0;">Make city selection</h5>
+            <div id="dvSourceContainer">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a id="aSrc" class="nav-link active hand" onclick="showSource()">Source</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="aDest" class="nav-link hand" onclick="showDestination()">Destination</a>
+                    </li>
+                </ul>
+                <div class="placeContainer">
+                    <div class="place" id="dvSrc">
+                        <div class="row rowCity">
+                            <div class="col-8"><input list="cities" class="txtSource" type="text" placeholder="Enter City"></div>
+                            <div class="col-2"><input class="txtSourceNum" type="text" placeholder="No."></div>
+                            <div class="col-2 dvIcon"><i onclick="addRow(event)" class="fa fa-plus" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="place" id="dvDest">
+                        <div class="row rowCity">
+                            <div class="col"><input list="cities" class="txtSource" type="text" placeholder="Enter City"></div>
+                            <!-- <div class="col-2"><input class="txtSourceNum" type="text" placeholder="No."></div>
+                            <div class="col-2 dvIcon"><i onclick="addRow(event)" class="fa fa-plus" aria-hidden="true"></i></div> -->
+                        </div>
+                    </div>
+                    <!-- <div id="dvSelectDestination">
+                        <button type="button" class="btn btn-primary" onclick="showDestination()">Select Destination</button>
+                    </div> -->
+                </div>
+                <div id="dateContainer">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rdExclude" id="rdFlights" value="flight" >
+                                <label class="form-check-label" for="rdFlights">
+                                    Don't include flights
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rdExclude" id="rdHotels" value="hotel" >
+                                <label class="form-check-label" for="rdHotels">
+                                    Don't include hotels
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rdExclude" id="rdBoth" value="both" checked>
+                                <label class="form-check-label" for="rdHotels">
+                                    Include Both
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="dateControl">
+                                <label for="">From</label>
+                                <input type="date" class="form-control" id="fromDate">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="dateControl">
+                                <label for="">To</label>
+                                <input type="date" class="form-control" id="toDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button onclick="search()" type="button" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="dvRecentSearchContainer">
+                <div class="container">
+                        <h5 style="margin: 20px 0 20px 0;">Recommendations</h5>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                    <img src="..." alt="...">
+                                    <div class="caption">
+                                        <h3>Thumbnail label</h3>
+                                        <p>Place 1</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                    <img src="..." alt="...">
+                                    <div class="caption">
+                                        <h3>Thumbnail label</h3>
+                                        <p>Place 2</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <datalist id="cities">
+            <option value="New Delhi (DEL)">
+            <option value="Mumbai (BOM)">
+            <option value="Johannesburg (JNB)">
+            <option value="Nairobi (NBO)">
+            <option value="Accra (ACC)">
+            <option value="Paris (CDG)">
+            <option value="Geneva (GVA)">
+            <option value="Zurich (ZRH)">
+            <option value="Berlin (SXF)">
+            <option value="London (LCY)">
+            <option value="New York (JFK)">
+            <option value="Washington (WAS)">
+            <option value="Ottawa (YOW)">
+            <option value="Brussels (BRU)">
+            <option value="Mexico City (MEX)">
+            <option value="Amsterdam (AMS)">
+            <option value="Dhaka (DAC)">
+            <option value="Dakar (DKR)">
+            <option value="Abuja (ABV)">
+            <option value="Capetown (CPT)">
+        </datalist>
+    </div>
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                <li class="list-inline-item">
+                    <a href="#">Blog</a>
+                </li>
+                <li class="list-inline-item">⋅</li>
+                <li class="list-inline-item">
+                    <a href="#">Contact</a>
+                </li>
+                <li class="list-inline-item">⋅</li>
+                <li class="list-inline-item">
+                    <a href="#">Terms of Use</a>
+                </li>
+                <li class="list-inline-item">⋅</li>
+                <li class="list-inline-item">
+                    <a href="#">Privacy Policy</a>
+                </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">© Trip Optimizer 2017. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                <li class="list-inline-item mr-3">
+                    <a href="#">
+                    <i class="fa fa-facebook fa-2x fa-fw"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item mr-3">
+                    <a href="#">
+                    <i class="fa fa-twitter fa-2x fa-fw"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                    <i class="fa fa-instagram fa-2x fa-fw"></i>
+                    </a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="public/js/search.js"></script>
+</body>
+</html>

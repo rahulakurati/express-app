@@ -1,0 +1,189 @@
+/* index */
+.masthead{
+    position: relative;
+    background-color: #343a40;
+    background: url(http://tripoptimizer.io/img/travel_image.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    height: 80vh;
+}
+
+.btnLogin{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#loginModal .modal-dialog{
+    margin-top: 25%;
+    transform: translate(0,-50%);
+    color: black;
+}
+
+.form-group{
+    text-align: left;
+}
+
+/* search */
+
+#dvSourceContainer{
+    margin-top: 2%;
+}
+
+#dvSourceContainer{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.txtSource{
+    margin: 10px;
+    width: 95%;
+}
+
+.txtSourceNum{
+    margin: 10px;
+    width: 40px;
+}
+
+.dvIcon i{
+    margin-top: 14%;
+    /* margin-left: 50%; */
+    color:blue;
+    cursor: pointer;
+}
+
+.placeContainer{
+    border: 1px solid #ddd;
+    border-top: 0;
+    height: 300px;
+    position: relative;
+}
+
+#dvSrc{
+    height: 80%;
+    overflow-y: scroll;
+}
+
+#dvSelectDestination{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.rowCity{
+    margin: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#dvRecentSearchContainer{
+    height: 40vh;
+}
+
+.dateControl{
+    display: inline-flex;
+}
+
+.dateControl label{
+    margin-top: 5px;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#dateContainer{
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+#dateContainer .row{
+    margin-top: 30px;
+}
+
+#dateContainer .row:last-child{
+    text-align: center;
+}
+
+#dateContainer .row:last-child button{
+    width: 300px;
+}
+
+.dvProfile{
+    position: absolute;
+    font-size: 12px;
+    display: none;
+}
+
+.ulProfile{
+    list-style: none;
+    padding: 0;
+    width: 100px;
+    color: blue;
+}
+
+#liProfile:hover>div{
+    display: block;
+}
+
+
+/* results */
+
+.body #dvResultsContainer{
+    margin-top: 30px;
+    margin-bottom: 30px; 
+    height: 75vh;
+}
+
+#dvFilterContainer>div{
+    margin-top: 30px;
+}
+
+#cbToggle{
+    text-align: right;
+}
+
+#cbToggle div{
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+#cbToggle label{
+    margin-right: 20px;
+}
+
+.calendarTable td{
+    /* height: 100px; */
+    width: 100px;
+    padding: .25em;
+}
+
+.dateExclude{
+    color: #ddd;
+}
+
+.dateInclude{
+    color: #ddd;
+}
+
+#tabCities li{
+    cursor: pointer;
+}
+
+
+
+
+/* utilities */
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.hand{
+    cursor: pointer;
+}

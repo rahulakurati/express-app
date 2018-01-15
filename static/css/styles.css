@@ -48,6 +48,14 @@
     margin: 10px;
     width: 40px;
 }
+.txtDestNum{
+    margin: 10px;
+    width: 40px;
+}
+.txtDest{
+    margin: 10px;
+    width: 95%;
+}
 
 .dvIcon i{
     margin-top: 14%;
@@ -64,6 +72,10 @@
 }
 
 #dvSrc{
+    height: 80%;
+    overflow-y: scroll;
+}
+#dvDest{
     height: 80%;
     overflow-y: scroll;
 }

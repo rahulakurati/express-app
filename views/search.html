@@ -13,7 +13,7 @@
     <nav class="navbar navbar-light bg-light static-top">
         <div class="container">
             <!-- <a class="navbar-brand" href="#">TripOptimizer.io</a> -->
-            <a href="index.html"><img src="http://tripoptimizer.io/img/logo.png" alt="TripOptimizer.io Logo"></a>
+            <a href="/" ><img src="http://tripoptimizer.io/img/logo.png" alt="TripOptimizer.io Logo"></a>
             <ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="nav-link" href="#">Blog</a>
@@ -56,9 +56,9 @@
                     </div>
                     <div class="place" id="dvDest">
                         <div class="row rowCity">
-                            <div class="col"><input list="cities" class="txtSource" type="text" placeholder="Enter City"></div>
-                            <!-- <div class="col-2"><input class="txtSourceNum" type="text" placeholder="No."></div>
-                            <div class="col-2 dvIcon"><i onclick="addRow(event)" class="fa fa-plus" aria-hidden="true"></i></div> -->
+                            <div class="col"><input list="cities" class="txtDest" type="text" placeholder="Enter City"></div>
+                            <div class="col-2"><input class="txtDestNum" type="text" placeholder="No."></div>
+                            <div class="col-2 dvIcon"><i onclick="addRowDest(event)" class="fa fa-plus" aria-hidden="true"></i></div>
                         </div>
                     </div>
                     <!-- <div id="dvSelectDestination">
@@ -71,7 +71,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="rdExclude" id="rdFlights" value="flight" >
                                 <label class="form-check-label" for="rdFlights">
-                                    Don't include flights
+                                    Flights only
                                 </label>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="rdExclude" id="rdHotels" value="hotel" >
                                 <label class="form-check-label" for="rdHotels">
-                                    Don't include hotels
+                                    Hotels only
                                 </label>
                             </div>
                         </div>

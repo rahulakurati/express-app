@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tripoptimizer | My Plans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <!-- <a class="navbar-brand" href="#">TripOptimizer.io</a> -->
+        <a href="/"><img src="http://tripoptimizer.io/img/logo.png" alt="TripOptimizer.io Logo"></a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li id="liProfile" class="nav-item" style="font-size: 25px;color: black;">
+                <!-- <a class="nav-link" href="#">Login</a> -->
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="dvProfile">
+                    <ul class="ulProfile">
+                        <li class="hand">Update Profile</li>
+                        <li class="hand"><a href="/myplans">My Plans</a></li>
+                        <li class="hand">Logout</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content">
+<div class="row">
+    <div class="col-md-4">
+        <div class="sidenav">
+             <a href="#">Your Plans</a>
+            <a href="#">Last Month</a>
+            <a href="#">Place holder</a>
+            <a href="#">Change Address</a>
+            <a href="#">Place holder</a>
+            <a href="#">Change Address</a>
+        </div>
+    </div>
+    <div class="col-md-8">
+
+        <div class="contentdiv">
+           <center> <label id="plandetails">My Plans</label></center>
+            <div class="box-body table-responsive">
+                <table  class="table table-bordered table-striped">
+                    <thead>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th> Offer</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>12-01-2018</td>
+                        <td>12:30:26</td>
+                        <td>Kolkata</td>
+                        <td>US</td>
+                        <td>no offer used</td>
+                    </tr>
+                    <tr>
+                        <td>12-01-2018</td>
+                        <td>12:30:26</td>
+                        <td>Kolkata</td>
+                        <td>US</td>
+                        <td>no offer used</td>
+                    </tr>
+                    <tr>
+                        <td>12-01-2018</td>
+                        <td>12:30:26</td>
+                        <td>Kolkata</td>
+                        <td>US</td>
+                        <td>no offer used</td>
+                    </tr>
+                    <tr>
+                        <td>12-01-2018</td>
+                        <td>12:30:26</td>
+                        <td>Kolkata</td>
+                        <td>US</td>
+                        <td>no offer used</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item">
+                        <a href="#">Contact</a>
+                    </li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">© Trip Optimizer 2017. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fa fa-facebook fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fa fa-twitter fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-instagram fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        $('.table').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+
+        });
+
+    });
+
+</script>
+</body>
+</html>

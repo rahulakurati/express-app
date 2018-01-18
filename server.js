@@ -28,7 +28,9 @@ router.get("/results",function(req,res){
 router.get("/about",function(req,res){
   res.sendFile(path + "about.html");
 });
-
+router.get("/myplans",function(req,res){
+    res.sendFile(path + "myPlans.html");
+});
 router.get("/contact",function(req,res){
   res.sendFile(path + "contact.html");
 });

@@ -23,80 +23,86 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact Us</a>
             </li>
-            <li id="liProfile" class="nav-item" style="font-size: 25px;color: black;">
+            <li id="liProfile" class="dropdown" style="font-size: 25px;color: black;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" >
+                    <span class="fa fa-user"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
                 <!-- <a class="nav-link" href="#">Login</a> -->
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <div class="dvProfile">
+
+                <!--<i class="fa fa-user" aria-hidden="true"></i>-->
+                <!--<div class="dvProfile">
                     <ul class="ulProfile">
                         <li class="hand">Update Profile</li>
                         <li class="hand"><a href="/myplans">My Plans</a></li>
                         <li class="hand">Logout</li>
                     </ul>
-                </div>
+                </div>-->
             </li>
+
         </ul>
+
     </div>
 </nav>
-<div class="content">
-<div class="row">
-    <div class="col-md-4">
-        <div class="sidenav">
-             <a href="#">Your Plans</a>
-            <a href="#">Last Month</a>
-            <a href="#">Place holder</a>
-            <a href="#">Change Address</a>
-            <a href="#">Place holder</a>
-            <a href="#">Change Address</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="sidenav bg-light">
+                <a href="#">Place holder 1</a>
+                <a href="#">Place holder 2</a>
+            </div>
         </div>
-    </div>
-    <div class="col-md-8">
-
-        <div class="contentdiv">
-           <center> <label id="plandetails">My Plans</label></center>
-            <div class="box-body table-responsive">
-                <table  class="table table-bordered table-striped">
-                    <thead>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Source</th>
-                    <th>Destination</th>
-                    <th> Offer</th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>12-01-2018</td>
-                        <td>12:30:26</td>
-                        <td>Kolkata</td>
-                        <td>US</td>
-                        <td>no offer used</td>
-                    </tr>
-                    <tr>
-                        <td>12-01-2018</td>
-                        <td>12:30:26</td>
-                        <td>Kolkata</td>
-                        <td>US</td>
-                        <td>no offer used</td>
-                    </tr>
-                    <tr>
-                        <td>12-01-2018</td>
-                        <td>12:30:26</td>
-                        <td>Kolkata</td>
-                        <td>US</td>
-                        <td>no offer used</td>
-                    </tr>
-                    <tr>
-                        <td>12-01-2018</td>
-                        <td>12:30:26</td>
-                        <td>Kolkata</td>
-                        <td>US</td>
-                        <td>no offer used</td>
-                    </tr>
-                    </tbody>
-                </table>
+        <div class="col-md-8">
+            <div class="">
+                <h3>My Plans</h3>
+                <div class="box-body table-responsive">
+                    <table  class="table table-striped">
+                        <thead>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th> Offer</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>12-01-2018</td>
+                            <td>12:30:26</td>
+                            <td>Mumbai</td>
+                            <td>Paris</td>
+                            <td>no offer used</td>
+                        </tr>
+                        <tr>
+                            <td>12-01-2018</td>
+                            <td>12:30:26</td>
+                            <td>Kolkata</td>
+                            <td>Paris</td>
+                            <td>no offer used</td>
+                        </tr>
+                        <tr>
+                            <td>12-01-2018</td>
+                            <td>12:30:26</td>
+                            <td>San Jose</td>
+                            <td>Dubai</td>
+                            <td>no offer used</td>
+                        </tr>
+                        <tr>
+                            <td>12-01-2018</td>
+                            <td>12:30:26</td>
+                            <td>Miami</td>
+                            <td>Las Vegas</td>
+                            <td>no offer used</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <footer class="footer bg-light">
     <div class="container">

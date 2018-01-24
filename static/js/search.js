@@ -59,11 +59,6 @@ function addRowDest(ev){
         ev.srcElement.classList.add("fa-minus");
         ev.srcElement.style = "color:red";
         var dv = document.getElementById('dvDest');
-        // dv.innerHTML += "<div class=\"row rowCity\"> \
-        //                     <div class=\"col-8\"><input list=\"cities\" class=\"txtSource\" type=\"text\" placeholder=\"Enter City\"></div>\
-        //                     <div class=\"col-2\"><input class=\"txtSourceNum\" type=\"text\" placeholder=\"No.\"></div>\
-        //                     <div class=\"col-2 dvIcon\"><i onclick=\"addRow(event)\" class=\"fa fa-plus\" aria-hidden=\"true\"></i></div>\
-        //                 </div>";
         var row = document.createElement("div");
         row.classList.add('row','rowCity');
 
@@ -87,7 +82,7 @@ function addRowDest(ev){
         var col3 = document.createElement("div");
         col3.classList.add("col-2","dvIcon");
         var inp2 = document.createElement("i");
-        inp2.setAttribute('onclick', 'addRow(event)');
+        inp2.setAttribute('onclick', 'addRowDest(event)');
         inp2.setAttribute('aria-hidden', 'true');
         inp2.classList.add("fa","fa-plus");
         col3.appendChild(inp2);
@@ -126,7 +121,8 @@ function showSource(){
 function search(){
     var arrCities = $('.txtSource');
     var arrCount = $('.txtSourceNum');
-    var i=0;
+
+  /* var i=0;
     for(i;i<arrCities.length-1;i++){
         document.cookie = "source"+i+"="+ arrCities[i].value;
         document.cookie = "count"+i+"="+ arrCount[i].value;
@@ -135,5 +131,5 @@ function search(){
     document.cookie = "type="+ $("input[name='rdExclude']:checked").val();
     document.cookie = "from="+ $('#fromDate').val();
     document.cookie = "to="+ $('#toDate').val();
-    window.location.href = '/results';
+    window.location.href = '/results';*/
 }

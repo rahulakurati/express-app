@@ -3,7 +3,6 @@ var session = require('express-session');
 var request = require('request');
 
 var app = express();
-var bodyParser = require('body-parser');
 var router = express.Router();
 var path1 = require('path');
 var path = __dirname + '/views/';

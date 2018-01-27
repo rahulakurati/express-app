@@ -5,6 +5,7 @@ var app = express();
 var router = express.Router();
 var path1 = require('path');
 var path = __dirname + '/views/';
+var airportList= require('airport-codes').toJSON();
 var UserManage = require(__dirname + '/controllers/UserManage.js');
 
 app.use('/public', express.static(path1.join(__dirname, 'static')));
@@ -104,6 +105,21 @@ router.get("/gethotel/:dest/:from/:to",function (req,res)
         console.log(response.statusMessage);
       }
     });
+});
+router.get("/airportName",function (req,res)
+{
+    var count=airportList.length;
+    var listOfObjects = [];
+    for(var i=0 ;i<count ;i++)
+    {
+        var airport = new Object();
+        airport.city= airportList[i].city;
+        airport.iata= airportList[i].iata;
+
+        listOfObjects.push(airport);
+    }
+    res.json(listOfObjects);
+
 });
 
 router.get("/user", UserManage.validate_user);

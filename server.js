@@ -108,6 +108,7 @@ router.get("/gethotel/:dest/:from/:to",function (req,res)
 });
 router.get("/airportName",function (req,res)
 {
+    console.log('1');
     var count=airportList.length;
     var listOfObjects = [];
     for(var i=0 ;i<count ;i++)

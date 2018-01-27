@@ -1,7 +1,17 @@
 $( document ).ready(function() {
+    getAirPortList();
     showSource();
 });
+function getAirPortList() {
+    $.get( "/airportName", function( data ) {
+        var options = '';
 
+        for(var i = 0; i < data.length; i++)
+            options += '<option value="'+data[i].city+'('+data[i].iata+' )'+'" />';
+
+        document.getElementById('cities').innerHTML = options;
+    });
+}
 function addRow(ev){
     if(ev.srcElement.classList.contains("fa-plus")){
         ev.srcElement.classList.remove("fa-plus");

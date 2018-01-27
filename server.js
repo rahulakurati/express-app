@@ -51,6 +51,61 @@ router.get("/search/:source",function(req,res){
   });
 })
 
+router.get("/getflight/:src/:dest/:from/:to/:tclass",function (req,res)
+{
+    var src= req.params.src;
+    var dest=req.params.dest;
+    var from=req.params.from;
+    var to=req.params.to;
+    //class could be ECONOMY,BUSINESS
+    var  travelClass=req.params.tclass;
+    var apikey='6tAWCV3A5UDIM8efBLcYoLV79kAPXzoA';
+    var FLIGHT_URL = "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey="+apikey+"&origin="+src+"&destination="+dest+"&departure_date="+from+"&return_date="+to+"&travel_class="+travelClass+"&number_of_results=2";
+    // var URL = "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=6tAWCV3A5UDIM8efBLcYoLV79kAPXzoA&origin=BOS&destination=LON&departure_date=2018-01-25&return_date=2018-01-28&travel_class=ECONOMY&number_of_results=2";
+    var HOTEL_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+apikey+"&location="+dest+"&check_in="+from+"&check_out="+to;
+    console.log(FLIGHT_URL);
+    request.get({
+        url: FLIGHT_URL,
+    }, function(error,response,body)
+    {
+      if (!error && response.statusCode == 200)
+      {
+        var data=JSON.parse(body);
+        var count=Object.keys(data.results).length;
+        res.json(data);
+      }
+      else{
+        console.log(response.statusCode);
+        console.log(response.statusMessage);
+      }
+    });
+});
+
+router.get("/gethotel/:dest/:from/:to",function (req,res)
+{
+    var dest=req.params.dest;
+    var from=req.params.from;
+    var to=req.params.to;
+    
+    var apikey='6tAWCV3A5UDIM8efBLcYoLV79kAPXzoA';
+    var HOTEL_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+apikey+"&location="+dest+"&check_in="+from+"&check_out="+to;
+    request.get({
+        url: HOTEL_URL,
+    }, function(error,response,body)
+    {
+      if (!error && response.statusCode == 200)
+      {
+        var data=JSON.parse(body);
+        var count=Object.keys(data.results).length;
+        res.json(data);
+      }
+      else{
+        console.log(response.statusCode);
+        console.log(response.statusMessage);
+      }
+    });
+});
+
 router.get("/user", UserManage.validate_user);
 
 app.use("/",router);

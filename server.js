@@ -71,9 +71,19 @@ router.get("/getflight/:src/:dest/:from/:to/:tclass",function (req,res)
     {
       if (!error && response.statusCode == 200)
       {
-        var data=JSON.parse(body);
-        var count=Object.keys(data.results).length;
-        res.json(data);
+          var data=JSON.parse(body);
+          var count=Object.keys(data.results).length;
+          var resultObject = [];
+          var finalResult = new Object();
+          finalResult.from=data.results[0].itineraries[0]["outbound"]["flights"][0]["departs_at"];
+          finalResult.to=data.results[0].itineraries[0]["inbound"]["flights"][0]["departs_at"];
+          finalResult.src=data.results[0].itineraries[0]["outbound"]["flights"][0]["origin"]["airport"];
+          finalResult.dest=data.results[0].itineraries[0]["outbound"]["flights"][0]["destination"]["airport"];
+          finalResult.total_fare=data.results[0]["fare"]["total_price"];
+          finalResult.outbound_marketing_airline =data.results[0].itineraries[0]["outbound"]["flights"][0]["marketing_airline"];
+          finalResult.inbound_marketing_airline=data.results[0].itineraries[0]["inbound"]["flights"][0]["marketing_airline"];
+          resultObject.push(finalResult);
+          res.json(resultObject);
       }
       else{
         console.log(response.statusCode);

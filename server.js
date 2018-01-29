@@ -99,16 +99,22 @@ router.get("/gethotel/:dest/:from/:to",function (req,res)
     var to=req.params.to;
     
     var apikey='6tAWCV3A5UDIM8efBLcYoLV79kAPXzoA';
-    var HOTEL_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+apikey+"&location="+dest+"&check_in="+from+"&check_out="+to;
+    var HOTEL_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+apikey+"&location="+dest+"&check_in="+from+"&check_out="+to+"&number_of_results=1";
     request.get({
         url: HOTEL_URL,
     }, function(error,response,body)
     {
       if (!error && response.statusCode == 200)
       {
-        var data=JSON.parse(body);
-        var count=Object.keys(data.results).length;
-        res.json(data);
+          var data=JSON.parse(body);
+          var count=Object.keys(data.results).length;
+          var resultObject = [];
+          var finalResult = new Object();
+          finalResult.Hotel_name=data.results[0]["property_name"];
+          finalResult.Check_in=data.results[0]["rooms"][0]["rates"][0]["start_date"];
+          finalResult.Total_price=data.results[0]["total_price"]["amount"];
+          resultObject.push(finalResult);
+          res.json(resultObject);
       }
       else{
         console.log(response.statusCode);

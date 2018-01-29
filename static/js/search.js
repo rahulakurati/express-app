@@ -140,5 +140,24 @@ function search(){
     document.cookie = "type="+ $("input[name='rdExclude']:checked").val();
     document.cookie = "from="+ $('#fromDate').val();
     document.cookie = "to="+ $('#toDate').val();
-    window.location.href = '/results';
+    var fromDate= $('#fromDate').val();
+    var toDate=$('#fromDate').val();
+    var type=$("input[name='rdExclude']:checked").val();
+        if(fromDate=="" )
+        {
+            alert( "Please Enter from Date!" );
+            return false;
+        }
+        if(toDate=="")
+        {
+            alert( "Please Enter To Date!" );
+            return false;
+        }
+        if(type=="")
+        {
+            alert( "Please select any of Flight or hotels or both" );
+            return false;
+        }
+      window.location.href = '/results';
+
 }

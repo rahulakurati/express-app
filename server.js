@@ -5,6 +5,7 @@ var app = express();
 var router = express.Router();
 var path1 = require('path');
 var path = __dirname + '/views/';
+var airportList= require('airport-codes').toJSON();
 var UserManage = require(__dirname + '/controllers/UserManage.js');
 
 app.use('/public', express.static(path1.join(__dirname, 'static')));
@@ -70,9 +71,19 @@ router.get("/getflight/:src/:dest/:from/:to/:tclass",function (req,res)
     {
       if (!error && response.statusCode == 200)
       {
-        var data=JSON.parse(body);
-        var count=Object.keys(data.results).length;
-        res.json(data);
+          var data=JSON.parse(body);
+          var count=Object.keys(data.results).length;
+          var resultObject = [];
+          var finalResult = new Object();
+          finalResult.from=data.results[0].itineraries[0]["outbound"]["flights"][0]["departs_at"];
+          finalResult.to=data.results[0].itineraries[0]["inbound"]["flights"][0]["departs_at"];
+          finalResult.src=data.results[0].itineraries[0]["outbound"]["flights"][0]["origin"]["airport"];
+          finalResult.dest=data.results[0].itineraries[0]["outbound"]["flights"][0]["destination"]["airport"];
+          finalResult.total_fare=data.results[0]["fare"]["total_price"];
+          finalResult.outbound_marketing_airline =data.results[0].itineraries[0]["outbound"]["flights"][0]["marketing_airline"];
+          finalResult.inbound_marketing_airline=data.results[0].itineraries[0]["inbound"]["flights"][0]["marketing_airline"];
+          resultObject.push(finalResult);
+          res.json(resultObject);
       }
       else{
         console.log(response.statusCode);
@@ -88,22 +99,44 @@ router.get("/gethotel/:dest/:from/:to",function (req,res)
     var to=req.params.to;
     
     var apikey='6tAWCV3A5UDIM8efBLcYoLV79kAPXzoA';
-    var HOTEL_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+apikey+"&location="+dest+"&check_in="+from+"&check_out="+to;
+    var HOTEL_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+apikey+"&location="+dest+"&check_in="+from+"&check_out="+to+"&number_of_results=1";
     request.get({
         url: HOTEL_URL,
     }, function(error,response,body)
     {
       if (!error && response.statusCode == 200)
       {
-        var data=JSON.parse(body);
-        var count=Object.keys(data.results).length;
-        res.json(data);
+          var data=JSON.parse(body);
+          var count=Object.keys(data.results).length;
+          var resultObject = [];
+          var finalResult = new Object();
+          finalResult.Hotel_name=data.results[0]["property_name"];
+          finalResult.Check_in=data.results[0]["rooms"][0]["rates"][0]["start_date"];
+          finalResult.Total_price=data.results[0]["total_price"]["amount"];
+          resultObject.push(finalResult);
+          res.json(resultObject);
       }
       else{
         console.log(response.statusCode);
         console.log(response.statusMessage);
       }
     });
+});
+router.get("/airportName",function (req,res)
+{
+    console.log('1');
+    var count=airportList.length;
+    var listOfObjects = [];
+    for(var i=0 ;i<count ;i++)
+    {
+        var airport = new Object();
+        airport.city= airportList[i].city;
+        airport.iata= airportList[i].iata;
+
+        listOfObjects.push(airport);
+    }
+    res.json(listOfObjects);
+
 });
 
 router.get("/user", UserManage.validate_user);

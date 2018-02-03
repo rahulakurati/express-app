@@ -1,7 +1,17 @@
 $( document ).ready(function() {
+    getAirPortList();
     showSource();
 });
+function getAirPortList() {
+    $.get( "/airportName", function( data ) {
+        var options = '';
 
+        for(var i = 0; i < data.length; i++)
+            options += '<option value="'+data[i].city+'('+data[i].iata+' )'+'" />';
+
+        document.getElementById('cities').innerHTML = options;
+    });
+}
 function addRow(ev){
     if(ev.srcElement.classList.contains("fa-plus")){
         ev.srcElement.classList.remove("fa-plus");
@@ -130,5 +140,24 @@ function search(){
     document.cookie = "type="+ $("input[name='rdExclude']:checked").val();
     document.cookie = "from="+ $('#fromDate').val();
     document.cookie = "to="+ $('#toDate').val();
-    window.location.href = '/results';
+    var fromDate= $('#fromDate').val();
+    var toDate=$('#fromDate').val();
+    var type=$("input[name='rdExclude']:checked").val();
+        if(fromDate=="" )
+        {
+            alert( "Please Enter from Date!" );
+            return false;
+        }
+        if(toDate=="")
+        {
+            alert( "Please Enter To Date!" );
+            return false;
+        }
+        if(type=="")
+        {
+            alert( "Please select any of Flight or hotels or both" );
+            return false;
+        }
+      window.location.href = '/results';
+
 }
